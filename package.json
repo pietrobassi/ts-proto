@@ -5,7 +5,7 @@
   "main": "build/plugin.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pietrobassi/ts-proto"
+    "url": "git+https://github.com/pietrobassi/ts-proto.git"
   },
   "bin": {
     "protoc-gen-ts_proto": "protoc-gen-ts_proto"
@@ -73,9 +73,5 @@
     "ts-poet": "^6.5.0",
     "ts-proto-descriptors": "1.15.0"
   },
-  "packageManager": "yarn@3.6.0",
-  "homepage": "https://github.com/stephenh/ts-proto#readme",
-  "directories": {
-    "test": "tests"
-  }
+  "packageManager": "yarn@3.6.0"
 }
