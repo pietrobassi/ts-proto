@@ -611,7 +611,7 @@ export function toTypeName(
 ): Code {
   function finalize(type: Code, isOptional: boolean) {
     if (isOptional) {
-      return code`${type} | undefined`;
+      return code`${type} | undefined${options.addNullToUndefined ? ' | null' : ''}`;
     }
     return type;
   }

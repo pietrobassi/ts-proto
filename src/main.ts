@@ -173,7 +173,7 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
       options.useDate === DateOption.DATE &&
       fileDesc.messageType.find((message) =>
         message.field.find((field) => field.typeName === ".google.protobuf.Timestamp"),
-      )
+      ) && options.addTimestampWrapper
     ) {
       chunks.push(makeProtobufTimestampWrapper());
     }
@@ -317,7 +317,9 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
       // and the service controller interface
       chunks.push(generateNestjsServiceController(ctx, fileDesc, sInfo, serviceDesc));
       // generate nestjs grpc service controller decorator
-      chunks.push(generateNestjsGrpcServiceMethodsDecorator(ctx, serviceDesc));
+      if (options.addServiceMethodsDecorator) {
+        chunks.push(generateNestjsGrpcServiceMethodsDecorator(ctx, serviceDesc));
+      }
 
       let serviceConstName = `${camelToSnake(serviceDesc.name)}_NAME`;
       if (!serviceDesc.name.toLowerCase().endsWith("service")) {

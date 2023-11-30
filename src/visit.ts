@@ -50,7 +50,7 @@ export function visit(
     // I.e. Foo_Bar.Zaz_Inner
     const protoFullName = protoPrefix + message.name;
     // I.e. FooBar_ZazInner
-    const tsFullName = tsPrefix + maybeSnakeToCamel(messageName(message), options);
+    const tsFullName = tsPrefix + maybeSnakeToCamel(messageName(message), options) + options.tsSuffix;
     const nestedSourceInfo = sourceInfo.open(childType, index);
     messageFn(tsFullName, message, nestedSourceInfo, protoFullName);
     const delim = options.useSnakeTypeName ? "_" : "";

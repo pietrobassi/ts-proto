@@ -96,6 +96,10 @@ export type Options = {
   rpcBeforeRequest: boolean;
   rpcAfterResponse: boolean;
   rpcErrorHandler: boolean;
+  addTimestampWrapper: boolean;
+  addNullToUndefined: boolean;
+  tsSuffix: string;
+  addServiceMethodsDecorator: boolean;
 };
 
 export function defaultOptions(): Options {
@@ -156,6 +160,10 @@ export function defaultOptions(): Options {
     rpcBeforeRequest: false,
     rpcAfterResponse: false,
     rpcErrorHandler: false,
+    addTimestampWrapper: true,
+    addNullToUndefined: false,
+    tsSuffix: "",
+    addServiceMethodsDecorator: true,
   };
 }
 
