@@ -574,6 +574,10 @@ export function messageToTypeName(
     return code`${valueType} | undefined`;
   }
   // Look for other special prototypes like Timestamp that aren't technically wrapper types
+  if (protoType === ".google.protobuf.Empty" && options.emptyToVoid) {
+    return code`void`;
+  }
+
   if (!typeOptions.keepValueType && protoType === ".google.protobuf.Timestamp") {
     if (options.useDate == DateOption.DATE) {
       return code`Date`;

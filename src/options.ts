@@ -100,6 +100,7 @@ export type Options = {
   addNullToUndefined: boolean;
   tsSuffix: string;
   addServiceMethodsDecorator: boolean;
+  emptyToVoid: boolean;
 };
 
 export function defaultOptions(): Options {
@@ -164,6 +165,7 @@ export function defaultOptions(): Options {
     addNullToUndefined: false,
     tsSuffix: "",
     addServiceMethodsDecorator: true,
+    emptyToVoid: false,
   };
 }
 
